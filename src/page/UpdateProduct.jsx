@@ -110,7 +110,7 @@ const UpdateProduct = () => {
             type="text"
             register={register}
             
-            defualtValue={Product.Name}
+            defualtValue={Product?.Name}
           />
           <Input
             id="Code"
@@ -118,7 +118,7 @@ const UpdateProduct = () => {
             type="text"
             register={register}
             
-            defualtValue={Product.Code}
+            defualtValue={Product?.Code}
           />
           <Input
             id="BrandName"
@@ -126,7 +126,7 @@ const UpdateProduct = () => {
             type="text"
             register={register}
             
-            defualtValue={Product.BrandName}
+            defualtValue={Product?.BrandName}
           />
           <Input
             id="Price"
@@ -134,7 +134,7 @@ const UpdateProduct = () => {
             type="Number"
             register={register}
             
-            defualtValue={Product.Price}
+            defualtValue={Product?.Price}
           />
           <Input
             id="Stock"
@@ -142,7 +142,7 @@ const UpdateProduct = () => {
             type="number"
             register={register}
            
-            defualtValue={Product.Stock}
+            defualtValue={Product?.Stock}
           />
           <Input
             id="Rating"
@@ -150,7 +150,7 @@ const UpdateProduct = () => {
             type="number"
             register={register}
           
-            defualtValue={Product.Rating}
+            defualtValue={Product?.Rating}
           />
           <Input
             id="Description"
@@ -158,7 +158,7 @@ const UpdateProduct = () => {
             type="text"
             register={register}
            
-            defualtValue={Product.Description}
+            defualtValue={Product?.Description}
           />
           <DropDrown
             id="CatagoryName"
@@ -166,7 +166,7 @@ const UpdateProduct = () => {
             type="text"
             register={register}
 
-            defualtValue={Product.category?.CatagoryName}
+            defualtValue={Product?.category?.CatagoryName}
           />
           <Button>Add Product</Button>
         </form>

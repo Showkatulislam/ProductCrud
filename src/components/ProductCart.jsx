@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 const ProductCart = ({Product,action}) => {
-    console.log(Product.ProductId);
+    const {Name,Description,Price,ProductId}=Product
     return (
         <div
         className="
         flex 
         flex-col
         gap-4
-        bg-cyan-500 
-        hover:bg-cyan-600
+        bg-gray-400 
+        hover:bg-gray-500
         py-4
         px-3
         rounderd
@@ -19,7 +21,7 @@ const ProductCart = ({Product,action}) => {
             className="
             text-bold 
             text-2xl "
-            >{Product?.Name}</h1>
+            >{Name}</h1>
              <div
              className="
              flex
@@ -33,16 +35,19 @@ const ProductCart = ({Product,action}) => {
                 py-1
                 px-2
                 "
-                >{Product.Description}</p>
+                >{Description}</p>
                 <div
                 className="
                 font-bold
                 text-md
                 "
                 >
-                    status : <span className="text-purple-900">{Product.Price}</span>
+                    Price : <span className="text-purple-900">{Price}</span>
                 </div>
-                <div>
+                <div 
+                className="
+                flex justify-between items-center"
+                >
                     <button
                     className="
                     py-1
@@ -51,8 +56,19 @@ const ProductCart = ({Product,action}) => {
                     text-center
                     rounded-2
                      "
-                    onClick={()=>action(Product.ProductId)}
+                    onClick={()=>action(ProductId)}
                     >delete</button>
+
+                    <div
+                    className="
+                    py-1
+                    px-3
+                    bg-blue-500
+                    text-center
+                    rounded-2
+                     ">
+                        <Link to={`update-Product/${ProductId}`}>Update Prouct</Link>
+                    </div>
                 </div>
              </div>
         </div>
