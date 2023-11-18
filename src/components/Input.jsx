@@ -1,4 +1,4 @@
-const Input = ({ id, label, type, required, register }) => {
+const Input = ({ id, label, type, required, register,defualtValue}) => {
   return (
     <div>
       <label
@@ -30,6 +30,8 @@ const Input = ({ id, label, type, required, register }) => {
             rounded
             px-2
             "
+          
+            value={defualtValue}
         type={type}
         {...register(id, { required })}
       />

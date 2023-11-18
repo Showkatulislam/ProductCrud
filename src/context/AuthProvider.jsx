@@ -6,15 +6,19 @@ export const AuthContext=createContext(null)
 
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState('')
+    const [loading,setLoading]=useState(true);
     const authinfo={
         user,
-        setUser
+        setUser,
+        loading
     }
     useEffect(()=>{
+        setLoading(true);
         if(!user){
             setUser(localStorage.getItem('email'))
+            setLoading(false);
         }
-    },[user])
+    },[])
     return (
         <AuthContext.Provider value={authinfo}>
             {children}

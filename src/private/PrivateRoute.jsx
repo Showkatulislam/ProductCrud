@@ -4,9 +4,12 @@ import UseAuth from "../context/UseAuth";
 
 const PrivateRoute = ({children}) => {
 
-    const {user}=UseAuth()
+    const {user,loading}=UseAuth()
 
     console.log(user);
+    if(loading){
+        return <p>loaddding </p>
+    }
     if(user){
         return children
     }

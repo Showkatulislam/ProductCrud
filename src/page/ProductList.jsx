@@ -16,7 +16,7 @@ const ProductList = () => {
     axios.get(`${url}Product`, h).then((res) => {
       setProducts(res.data);
     });
-  }, [Products]);
+  }, []);
 
   const handleDeleteProduct = (ProductId) => {
     axios.delete(`${url}Product/${ProductId}`, h).then((res) => {
@@ -46,8 +46,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
-
-/* 
-lerme
-*/
