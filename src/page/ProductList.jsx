@@ -16,10 +16,10 @@ const ProductList = () => {
     axios.get(`${url}Product`, h).then((res) => {
       setProducts(res.data);
     });
-  }, []);
+  }, [Products]);
 
   const handleDeleteProduct = (ProductId) => {
-    axios.delete(`${url}v1/Product/${ProductId}`, h).then((res) => {
+    axios.delete(`${url}Product/${ProductId}`, h).then((res) => {
       if (res.statusText) {
         setProducts(
           Products.filter((Product) => Product._ProductId !== ProductId)

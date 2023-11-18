@@ -65,7 +65,6 @@ const Home = () => {
           className="
         col-span-1 
         bg-white 
-        py-10 
         px-3 
         hidden
         md:block

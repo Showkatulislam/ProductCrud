@@ -51,7 +51,7 @@ const ProductCart = ({Product,action}) => {
                     text-center
                     rounded-2
                      "
-                    onClick={()=>action(Product.id)}
+                    onClick={()=>action(Product.ProductId)}
                     >delete</button>
                 </div>
              </div>

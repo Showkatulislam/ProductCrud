@@ -6,11 +6,11 @@ const Input = ({ id, label, type, required, register }) => {
             text-md
             text-gray-800
             block
-            pb-1
+          
             font-semibold
             "
         htmlFor={id}
-       >
+      >
         {label}
       </label>
       <input
