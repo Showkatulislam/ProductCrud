@@ -8,8 +8,8 @@ const DropDrown = ({ id, label, type, required, register }) => {
   const h = {
     headers: {
       "content-type": "application/json",
-      token,
-    },
+      "Authorization":`Bearer ${token}`
+    }
   };
   useEffect(() => {
     axios.get(`${url}Category`, h).then((res) => {

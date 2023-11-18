@@ -9,8 +9,8 @@ const ProductList = () => {
   const h = {
     headers: {
       "content-type": "application/json",
-      token,
-    },
+      "Authorization":`Bearer ${token}`
+    }
   };
   useEffect(() => {
     axios.get(`${url}Product`, h).then((res) => {

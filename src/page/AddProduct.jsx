@@ -33,8 +33,8 @@ const AddProduct = () => {
     const h = {
       headers: {
         "content-type": "application/json",
-        token,
-      },
+        "Authorization":`Bearer ${token}`
+      }
     };
     axios
       .post(
