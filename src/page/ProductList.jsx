@@ -20,9 +20,9 @@ const ProductList = () => {
 
   const handleDeleteProduct = (ProductId) => {
     axios.delete(`${url}Product/${ProductId}`, h).then((res) => {
-      if (res.statusText) {
+      if (res.data) {
         setProducts(
-          Products.filter((Product) => Product._ProductId !== ProductId)
+          Products.filter((Product) => Product.ProductId !== ProductId)
         );
         toast.success("Product Delete Successfully");
       }
@@ -31,7 +31,7 @@ const ProductList = () => {
 
   return (
     <>
-      <h1 className="text-center text-2xl font-bold">All Product</h1>
+      <h1 className="text-center text-2xl font-bold my-2">All Product</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mx-auto">
         {Products?.map((Product) => (
           <ProductCart

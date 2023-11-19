@@ -45,8 +45,7 @@ const AddProduct = () => {
       )
       .then((res) => {
         console.log(res);
-        const message = res.data.message;
-        toast.success(message);
+        toast.success("Product add SuccessFully.");
       })
       .catch((err) => {
         console.log(err);
@@ -86,7 +85,7 @@ const AddProduct = () => {
         onSubmit={handleSubmit(handleAddProduct)}
       >
         <Input
-          id="title"
+          id="Name"
           label="Name"
           type="text"
           register={register}

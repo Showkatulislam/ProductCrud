@@ -12,52 +12,53 @@ const UpdateProduct = () => {
   const { id } = useParams();
   const [Product, setProduct] = useState([]);
   const token = localStorage.getItem("token");
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      Name: "",
-      Code: "",
-      BrandName: "",
-      Price: 0,
-      Stock: 0,
-      Rating: 0,
-      Description: "",
-      CatagoryId: 0,
-      category: {
-        CategoryId: 0,
-        CatagoryName: "Hp",
-      },
-    },
-  });
+
   const h = {
     headers: {
       "content-type": "application/json",
-      token,
-    },
+      "Authorization":`Bearer ${token}`
+    }
   };
+
+  const ProductId=parseInt(id);
+
   useEffect(() => {
-    axios.get(`${url}Product`, h).then((res) => {
-      setProduct(res.data.find((p) => p.ProductId == Number(id)));
+    axios.get(`${url}Product/${ProductId}`, h).then((res) => {
+    setProduct(res.data);
     });
   }, []);
 
+  const { register, handleSubmit } = useForm();
+
+
+
   const handleUpdateProduct = (data) => {
-    const token = localStorage.getItem("token");
-    const { CatagoryName } = data;
-    console.log(CatagoryName);
-    data.category.CatagoryName = CatagoryName;
-    data.ProductId = Product.ProductId;
-    console.log(data);
-    const h = {
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    console.log(data)
+
+    const { CatagoryName,Name,Code,BrandName,Price,Stock,Rating,Description } = data;
+
+    const my={
+        "ProductId":Product?.ProductId,
+        "Name": Name,
+        "Code": Code,
+        "BrandName": BrandName,
+        "Price": Price,
+        "Stock": Stock,
+        "Rating": Rating,
+        "Description": Description,
+        "CatagoryId":Product.ProductId ,
+        "category": {
+          "CategoryId": Product.ProductId,
+          "CatagoryName": CatagoryName
+      }
+    
+  }
+    console.log(my)
     axios
       .put(
         `${url}Product
         `,
-        data,
+        my,
         h
       )
       .then((res) => {
@@ -105,60 +106,65 @@ const UpdateProduct = () => {
         onSubmit={handleSubmit(handleUpdateProduct)}
       >
         <Input
-          id="title"
+          id="Name"
           label="Name"
           type="text"
           register={register}
-          defualtValue={Product?.Name}
+          Value={Product.Name}
+         
         />
         <Input
           id="Code"
           label="Code"
           type="text"
           register={register}
-          defualtValue={Product?.Code}
+          Value={Product.Code}
         />
         <Input
           id="BrandName"
           label="BrandName"
           type="text"
           register={register}
-          defualtValue={Product?.BrandName}
+          Value={Product.BrandName}
+      
         />
         <Input
           id="Price"
           label="Price"
           type="Number"
           register={register}
-          defualtValue={Product?.Price}
+          Value={Product.Number}
+    
         />
         <Input
           id="Stock"
           label="Stock"
           type="number"
           register={register}
-          defualtValue={Product?.Stock}
+          Value={Product.Stock}
+         
         />
         <Input
           id="Rating"
           label="Rating"
           type="number"
           register={register}
-          defualtValue={Product?.Rating}
+          Value={Product.Rating}
         />
         <Input
           id="Description"
           label="Description"
           type="text"
           register={register}
-          defualtValue={Product?.Description}
+          Value={Product.Description}
+         
         />
         <DropDrown
           id="CatagoryName"
           label="CatagoryName"
           type="text"
           register={register}
-          defualtValue={Product?.category?.CatagoryName}
+          Value={Product?.category?.CatagoryName}
         />
         <Button>Update Product</Button>
       </form>

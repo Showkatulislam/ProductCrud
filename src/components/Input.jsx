@@ -1,4 +1,4 @@
-const Input = ({ id, label, type, required, register,defualtValue}) => {
+const Input = ({ id, label, type,  register,Value}) => {
   return (
     <div>
       <label
@@ -31,9 +31,9 @@ const Input = ({ id, label, type, required, register,defualtValue}) => {
             px-2
             "
           
-            value={defualtValue}
+           defaultValue={Value}
         type={type}
-        {...register(id, { required })}
+        {...register(id)}
       />
     </div>
   );

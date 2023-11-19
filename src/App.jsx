@@ -12,7 +12,6 @@ const App = () => {
     flex 
     flex-col
     justify-center
-    bg-gray-900
     max-w-full
     mx-auto
     "
@@ -23,7 +22,7 @@ const App = () => {
       md:text-5xl
       sm:text-4xl
       mb-10
-      text-purple-600
+      text-indigo-600
       font-bold
       "
       >
@@ -43,8 +42,10 @@ const App = () => {
         text-white
         py-2
         px-5
-        rounded
         ring-2
+        border-0
+        rounded
+        shadow-md
         "
         to='/auth'
         >
